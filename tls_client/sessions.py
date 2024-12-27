@@ -367,7 +367,7 @@ class Session:
 
         # --- Proxy ----------------------------------------------------------------------------------------------------
         proxy = proxy or self.proxies
-        
+
         if type(proxy) is dict and "http" in proxy:
             proxy = proxy["http"]
         elif type(proxy) is str:
@@ -384,7 +384,7 @@ class Session:
         # pins a certificate so that it restricts which certificates are considered valid
 
         certificate_pinning = self.certificate_pinning
-        
+
         # --- Request --------------------------------------------------------------------------------------------------
         is_byte_request = isinstance(request_body, (bytes, bytearray))
         request_payload = {
@@ -405,6 +405,7 @@ class Session:
             "requestCookies": request_cookies,
             "timeoutSeconds": timeout_seconds,
         }
+
         if certificate_pinning:
             request_payload["certificatePinningHosts"] = certificate_pinning
         if self.client_identifier is None:

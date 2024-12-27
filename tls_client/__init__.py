@@ -13,3 +13,6 @@
 # requests: https://github.com/psf/requests
 
 from .sessions import Session
+from .async_session import AsyncSession
+
+__all__ = [Session, AsyncSession]

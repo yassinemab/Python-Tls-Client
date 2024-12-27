@@ -24,7 +24,7 @@ class Response:
 
         # A CookieJar of Cookies the server sent back.
         self.cookies = cookiejar_from_dict({})
-        
+
         self._content = False
 
     def __enter__(self):
@@ -36,11 +36,11 @@ class Response:
     def json(self, **kwargs):
         """parse response body to json (dict/list)"""
         return json.loads(self.text, **kwargs)
-    
+
     @property
     def content(self):
         """Content of the response, in bytes."""
-        
+
         if self._content is False:
             if self._content_consumed:
                 raise RuntimeError("The content for this response was already consumed")
